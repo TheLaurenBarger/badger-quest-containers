@@ -25,7 +25,7 @@ Volume=nginx-proxy-manager.volume:/data:Z
 Volume=nginx-proxy-manager-certs.volume:/etc/letsencrypt:Z
 
 [Service]
-Restart=unless-stopped
+Restart=always
 
 [Install]
 WantedBy=multi-user.target default.target
