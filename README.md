@@ -22,28 +22,23 @@ The following directory structure defines the quadlet definitions.
 │   ├── development.network
 │   ├── automation.network
 │   └── operational.network
-├── containers/
-│   ├── media/
-│   │   ├── sonarr.container
-│   │   ├── prowlarr.container
-│   │   ├── jellyfin.container
-│   │   └── qbittorrent.container
-│   ├── development/
-│   │   ├── woodpecker.container
-│   │   ├── registry.container
-│   │   ├── maven-repository.container
-│   │   ├── mysql.container
-│   │   └── custom-java-app.container
-│   ├── automation/
-│   │   └── home-assistant.container
-│   └── operational/
-│       ├── nginx-proxy-manager.container
-│       ├── cloudflare-ddns.container
-│       ├── ntfy.container
-│       └── rabbitmq.container
-└── env/
-    ├── media.env
-    ├── development.env
-    ├── automation.env
-    └── operational.env
+└── containers/
+    ├── media/
+    │   ├── sonarr.container
+    │   ├── prowlarr.container
+    │   ├── jellyfin.container
+    │   └── qbittorrent.container
+    ├── development/
+    │   ├── woodpecker.container
+    │   ├── registry.container
+    │   ├── maven-repository.container
+    │   ├── mysql.container
+    │   └── custom-java-app.container
+    ├── automation/
+    │   └── home-assistant.container
+    └── operational/
+        ├── nginx-proxy-manager.container
+        ├── cloudflare-ddns.container
+        ├── ntfy.container
+        └── rabbitmq.container
 ```

@@ -1,0 +1,31 @@
+[Unit]
+Description=NGINX Proxy Manager Container
+After=network-online.target infrastructure.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
+Wants=network-online.target infrastructure.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
+
+[Container]
+ContainerName=nginx-proxy-manager
+Image=docker.io/jc21/nginx-proxy-manager:latest
+
+PublishPort=80:80
+PublishPort=81:81
+PublishPort=443:443
+
+Network=infrastructure-network
+Network=media-network
+Network=development-network
+Network=automation-network
+
+EnvironmentFile=/var/container/config/default.env
+EnvironmentFile=/var/container/config/infrastructure.env
+
+AutoUpdate=registry
+
+Volume=nginx-proxy-manager:/data:Z
+Volume=nginx-proxy-manager-certs:/etc/letsencrypt:Z
+
+[Service]
+Restart=unless-stopped
+
+[Install]
+WantedBy=multi-user.target default.target
