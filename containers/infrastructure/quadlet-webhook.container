@@ -1,0 +1,23 @@
+[Unit]
+Description=Quadlet Webhook Auto-Update Service
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+ContainerName=quadlet-webhook
+Image=docker.io/library/golang:latest
+
+Exec=go run /app/main.go
+
+PublishPort=9010:8080
+
+Network=infrastructure-network
+
+Secret=container-github-webhook-secret
+Environment=GITHUB_WEBHOOK_SECRET=/run/secrets/container-github-webhook-secret
+
+[Service]
+Restart=unless-stopped
+
+[Install]
+WantedBy=default.target
