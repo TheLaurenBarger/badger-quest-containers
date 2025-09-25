@@ -1,3 +1,6 @@
+[Unit]
+Description=Automation Services Network
+
 [Network]
 Subnet=10.1.0.0/24
 Gateway=10.1.0.1
