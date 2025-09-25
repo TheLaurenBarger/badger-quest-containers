@@ -7,14 +7,23 @@ Wants=network-online.target
 ContainerName=quadlet-webhook
 Image=docker.io/library/golang:latest
 
-Exec=go run /app/main.go
-
 PublishPort=9010:8080
 
 Network=infrastructure.network
 
 Secret=container-github-webhook-secret
 Environment=GITHUB_WEBHOOK_SECRET=/run/secrets/container-github-webhook-secret
+
+Volume=quadlet-webhook.volume:/app:z
+
+Exec=go run /app/main.go
+
+Notify=healthy
+HealthCmd=curl -f http://0.0.0.0:8080/health || exit 1
+HealthInterval=30s
+HealthRetries=3
+HealthStartPeriod=10s
+HealthTimeout=5s
 
 [Service]
 Restart=unless-stopped
