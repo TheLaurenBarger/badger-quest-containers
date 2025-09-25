@@ -1,5 +1,0 @@
-[Unit]
-Description=Quadlet Webhook Auto-Update Volume
-
-[Volume]
-Driver=local

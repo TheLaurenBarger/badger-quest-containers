@@ -14,7 +14,7 @@ Network=infrastructure.network
 Secret=container-github-webhook-secret
 Environment=GITHUB_WEBHOOK_SECRET=/run/secrets/container-github-webhook-secret
 
-Volume=quadlet-webhook.volume:/app:z
+Volume=/usr/local/app/quadlet-webhook:/app:z
 
 Exec=go run /app/main.go
 
