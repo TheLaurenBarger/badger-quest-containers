@@ -16,7 +16,7 @@ Network=automation.network
 Network=development.network
 Network=media.network
 
-EnvironmentFile=/var/container/config/default.env
+EnvironmentFile=%h/containers/config/default.env
 
 AutoUpdate=registry
 
