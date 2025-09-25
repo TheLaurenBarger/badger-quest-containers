@@ -5,7 +5,7 @@ Wants=network-online.target infrastructure.network automation.network developmen
 
 [Container]
 ContainerName=nginx-proxy-manager
-Image=docker.io/jc21/nginx-proxy-manager:latest
+Image=docker.io/jc21/nginx-proxy-manager:2.9.22
 
 PublishPort=8080:80
 PublishPort=8081:81
