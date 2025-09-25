@@ -1,4 +1,3 @@
 [Network]
-NetworkName=automation-network
 Subnet=10.1.0.0/24
 Gateway=10.1.0.1

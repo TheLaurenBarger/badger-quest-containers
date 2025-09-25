@@ -1,4 +1,3 @@
 [Network]
-NetworkName=development-network
 Subnet=10.2.0.0/24
 Gateway=10.2.0.1

@@ -1,5 +1,2 @@
 [Unit]
 Description=NGINX Proxy Manager Certs Data Volume
-
-[Volume]
-Name=nginx-proxy-manager-certs

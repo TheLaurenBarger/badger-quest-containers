@@ -21,8 +21,8 @@ EnvironmentFile=/var/container/config/infrastructure.env
 
 AutoUpdate=registry
 
-Volume=nginx-proxy-manager:/data:Z
-Volume=nginx-proxy-manager-certs:/etc/letsencrypt:Z
+Volume=nginx-proxy-manager.volume:/data:Z
+Volume=nginx-proxy-manager-certs.volume:/etc/letsencrypt:Z
 
 [Service]
 Restart=unless-stopped

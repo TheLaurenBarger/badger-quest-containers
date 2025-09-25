@@ -1,5 +1,2 @@
 [Unit]
 Description=NGINX Proxy Manager Data Volume
-
-[Volume]
-Name=nginx-proxy-manager
