@@ -1,7 +1,7 @@
 [Unit]
 Description=NGINX Proxy Manager Container
-After=network-online.target infrastructure.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
-Wants=network-online.target infrastructure.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
+After=network-online.target infrastructure.network automation.network development.network media.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
+Wants=network-online.target infrastructure.network automation.network development.network media.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
 
 [Container]
 ContainerName=nginx-proxy-manager
@@ -11,10 +11,10 @@ PublishPort=80:80
 PublishPort=81:81
 PublishPort=443:443
 
-Network=infrastructure-network
-Network=media-network
-Network=development-network
-Network=automation-network
+Network=infrastructure.network
+Network=automation.network
+Network=development.network
+Network=media.network
 
 EnvironmentFile=/var/container/config/default.env
 EnvironmentFile=/var/container/config/infrastructure.env
