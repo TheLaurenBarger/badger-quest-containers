@@ -1,0 +1,5 @@
+[Unit]
+Description=Jellyseerr Volume
+
+[Volume]
+Driver=local
