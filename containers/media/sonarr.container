@@ -20,7 +20,7 @@ Timezone=${TZ}
 Volume=sonarr.volume:/config:Z
 
 [Service]
-Restart=on-failure
+Restart=always
 
 [Install]
 WantedBy=multi-user.target default.target

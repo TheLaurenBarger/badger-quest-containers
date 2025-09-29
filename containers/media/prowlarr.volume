@@ -1,0 +1,5 @@
+[Unit]
+Description=Prowlarr Volume
+
+[Volume]
+Driver=local

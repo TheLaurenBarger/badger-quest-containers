@@ -1,0 +1,26 @@
+[Unit]
+Description=Prowlarr Container
+After=network-online.target media.network prowlarr.volume
+Wants=network-online.target media.network prowlarr.volume
+
+[Container]
+ContainerName=prowlarr
+Image=lscr.io/linuxserver/prowlarr:latest
+
+PublishPort=9696:9696
+
+Network=media.network
+
+EnvironmentFile=%h/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=Africa/Johannesburg
+
+Volume=prowlarr.volume:/config:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -4,7 +4,7 @@ After=network-online.target media.network radarr.volume
 Wants=network-online.target media.network radarr.volume
 
 [Container]
-ContainerName=sonarr
+ContainerName=radarr
 Image=lscr.io/linuxserver/radarr:latest
 
 PublishPort=7878:7878
@@ -20,7 +20,7 @@ Timezone=${TZ}
 Volume=radarr.volume:/config:Z
 
 [Service]
-Restart=on-failure
+Restart=always
 
 [Install]
 WantedBy=multi-user.target default.target
