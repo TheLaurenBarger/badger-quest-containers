@@ -1,0 +1,31 @@
+[Unit]
+Description=qBittorrent Container
+After=network-online.target media.network qbittorrent.volume
+Wants=network-online.target media.network qbittorrent.volume
+
+[Container]
+ContainerName=qbittorrent
+Image=lscr.io/linuxserver/qbittorrent:latest
+
+PublishPort=9112:9112
+PublishPort=6881:6881
+
+Network=media.network
+
+EnvironmentFile=%h/containers/config/default.env
+Environment=WEBUI_PORT=9112
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=qbittorrent.volume:/config:Z
+Volume=/mnt/media/downloads:/downloads:Z
+
+AddDevice=/dev/dri
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
