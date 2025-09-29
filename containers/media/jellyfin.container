@@ -1,0 +1,28 @@
+[Unit]
+Description=Jellyfin Container
+After=network-online.target media.network jellyfin.volume
+Wants=network-online.target media.network jellyfin.volume
+
+[Container]
+ContainerName=jellyfin
+Image=lscr.io/linuxserver/jellyfin:latest
+
+PublishPort=8096:8096
+
+Network=media.network
+
+EnvironmentFile=%h/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=jellyfin.volume:/config:Z
+
+AddDevice=/dev/dri
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
