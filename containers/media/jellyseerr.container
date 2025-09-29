@@ -1,0 +1,26 @@
+[Unit]
+Description=Jellyseerr Container
+After=network-online.target media.network jellyseerr.volume
+Wants=network-online.target media.network jellyseerr.volume
+
+[Container]
+ContainerName=jellyseerr
+Image=fallenbagel/jellyseerr:latest
+
+PublishPort=5055:5055
+
+Network=media.network
+
+EnvironmentFile=%h/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=jellyseerr.volume:/app/config:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
