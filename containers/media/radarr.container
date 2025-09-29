@@ -1,0 +1,26 @@
+[Unit]
+Description=Radarr Container
+After=network-online.target media.network radarr.volume
+Wants=network-online.target media.network radarr.volume
+
+[Container]
+ContainerName=sonarr
+Image=lscr.io/linuxserver/radarr:latest
+
+PublishPort=7878:7878
+
+Network=media.network
+
+EnvironmentFile=%h/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=radarr.volume:/config:Z
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target default.target

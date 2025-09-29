@@ -1,0 +1,26 @@
+[Unit]
+Description=Sonarr Container
+After=network-online.target media.network sonarr.volume
+Wants=network-online.target media.network sonarr.volume
+
+[Container]
+ContainerName=sonarr
+Image=lscr.io/linuxserver/sonarr:latest
+
+PublishPort=8989:8989
+
+Network=media.network
+
+EnvironmentFile=%h/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=sonarr.volume:/config:Z
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target default.target
