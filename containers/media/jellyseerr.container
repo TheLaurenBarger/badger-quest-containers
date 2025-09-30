@@ -21,6 +21,7 @@ Volume=jellyseerr.volume:/app/config:Z
 
 [Service]
 Restart=always
+ExecStartPre=sudo firewall-cmd --permanent --add-port={5055/tcp} && sudo firewall-cmd --reload
 
 [Install]
 WantedBy=multi-user.target default.target
