@@ -31,4 +31,4 @@ ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9112/tcp && su
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"
 
 [Install]
-WantedBy=multi-user.target default.target
+WantedBy=default.target

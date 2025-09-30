@@ -29,4 +29,4 @@ Restart=on-failure
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8096/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8096 to firewall rules'"
 
 [Install]
-WantedBy=multi-user.target default.target
+WantedBy=default.target

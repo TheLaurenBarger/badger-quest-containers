@@ -26,6 +26,7 @@ Volume=nginx-proxy-manager.volume:/data:Z
 Volume=nginx-proxy-manager-certs.volume:/etc/letsencrypt:z
 
 SecurityLabelDisable=true
+Replace=true
 
 [Service]
 Restart=on-failure
@@ -34,4 +35,4 @@ ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8081/tcp && su
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8443/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8443 to firewall rules'"
 
 [Install]
-WantedBy=multi-user.target default.target
+WantedBy=default.target

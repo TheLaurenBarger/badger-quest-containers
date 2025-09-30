@@ -29,4 +29,4 @@ ExecStartPre=mkdir -p /mnt/media/downloads /mnt/media/movies
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7878/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7878 to firewall rules'"
 
 [Install]
-WantedBy=multi-user.target default.target
+WantedBy=default.target
