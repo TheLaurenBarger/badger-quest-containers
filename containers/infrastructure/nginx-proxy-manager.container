@@ -23,10 +23,15 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=nginx-proxy-manager.volume:/data:Z
-Volume=nginx-proxy-manager-certs.volume:/etc/letsencrypt:Z
+Volume=nginx-proxy-manager-certs.volume:/etc/letsencrypt:z
+
+SecurityLabelDisable=true
 
 [Service]
-Restart=always
+Restart=on-failure
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8080/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8080 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8081/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8081 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8443/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8443 to firewall rules'"
 
 [Install]
 WantedBy=multi-user.target default.target

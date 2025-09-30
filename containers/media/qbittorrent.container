@@ -25,8 +25,10 @@ Volume=/mnt/media/downloads:/downloads:z
 AddDevice=/dev/dri
 
 [Service]
-Restart=always
+Restart=on-failure
 ExecStartPre=mkdir -p /mnt/media/downloads
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9112/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9112 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"
 
 [Install]
 WantedBy=multi-user.target default.target
