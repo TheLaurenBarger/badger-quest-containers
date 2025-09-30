@@ -27,7 +27,6 @@ Volume=nginx-proxy-manager.volume:/data:Z
 Volume=nginx-proxy-manager-certs.volume:/etc/letsencrypt:z
 
 SecurityLabelDisable=true
-Replace=true
 
 [Service]
 Restart=on-failure
