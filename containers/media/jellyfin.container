@@ -2,6 +2,7 @@
 Description=Jellyfin Container
 After=network-online.target media.network jellyfin.volume
 Wants=network-online.target media.network jellyfin.volume
+StartLimitBurst=3
 
 [Container]
 ContainerName=jellyfin

@@ -3,7 +3,7 @@
 We'll leverage Podman Quadlets to run our servces. Podman quadlets are defined in unit files which are converted by Podman into systemd service files during the `systemctl daemon-reload` command. I'd like for these quadlet definitions to be automatically deployed to the server once there are any changes to their definitions. The required process flow to accommodate this looks like this:
 
 1. Create a remote repo of Quadlet Unit Files. See the [Quadlet Definition Repository](#quadlet-definition-repository)
-2. Clone the repository to a local store within the server, in the directory intended for storing non-root Quadlet files: `/etc/containers/systemd/users/`.
+2. Clone the repository to a local store within the server, in the directory intended for storing non-root Quadlet files: `/var/home/${BQI_USER_NAME}/.config/containers/systemd/`.
 3. Setup a webhook so that any changes pushed to the remote repository fires a repository update payload directed at a service running on the server.
 4. Create a Quadlet Auto-Deployment service which will receive the webhook, and on receiving it:
     * Store a record of the current quadlet definitions

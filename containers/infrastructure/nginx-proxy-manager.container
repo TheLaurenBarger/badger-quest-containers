@@ -2,6 +2,7 @@
 Description=NGINX Proxy Manager Container
 After=network-online.target infrastructure.network automation.network development.network media.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
 Wants=network-online.target infrastructure.network automation.network development.network media.network nginx-proxy-manager.volume nginx-proxy-manager-certs.volume
+StartLimitBurst=3
 
 [Container]
 ContainerName=nginx-proxy-manager

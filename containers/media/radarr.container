@@ -2,6 +2,7 @@
 Description=Radarr Container
 After=network-online.target media.network radarr.volume
 Wants=network-online.target media.network radarr.volume
+StartLimitBurst=3
 
 [Container]
 ContainerName=radarr

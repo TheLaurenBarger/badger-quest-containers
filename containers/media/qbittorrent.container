@@ -2,6 +2,7 @@
 Description=qBittorrent Container
 After=network-online.target media.network qbittorrent.volume
 Wants=network-online.target media.network qbittorrent.volume
+StartLimitBurst=3
 
 [Container]
 ContainerName=qbittorrent

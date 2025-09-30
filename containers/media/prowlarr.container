@@ -2,6 +2,7 @@
 Description=Prowlarr Container
 After=network-online.target media.network prowlarr.volume
 Wants=network-online.target media.network prowlarr.volume
+StartLimitBurst=3
 
 [Container]
 ContainerName=prowlarr

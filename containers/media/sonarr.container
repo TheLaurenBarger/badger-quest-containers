@@ -2,6 +2,7 @@
 Description=Sonarr Container
 After=network-online.target media.network sonarr.volume
 Wants=network-online.target media.network sonarr.volume
+StartLimitBurst=3
 
 [Container]
 ContainerName=sonarr
