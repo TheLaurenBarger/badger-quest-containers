@@ -8,13 +8,13 @@ StartLimitBurst=3
 ContainerName=qbittorrent
 Image=lscr.io/linuxserver/qbittorrent:latest
 
-PublishPort=9112:9112
+PublishPort=9010:9112
 PublishPort=6881:6881
 
 Network=media.network
 
 EnvironmentFile=/var/home/badger/containers/config/default.env
-Environment=WEBUI_PORT=9112
+Environment=WEBUI_PORT=10010
 
 AutoUpdate=registry
 
@@ -28,7 +28,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /mnt/media/downloads
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9112/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9112 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9010/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9010 to firewall rules'"
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"
 
 [Install]

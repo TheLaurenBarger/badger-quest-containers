@@ -8,7 +8,7 @@ StartLimitBurst=3
 ContainerName=radarr
 Image=lscr.io/linuxserver/radarr:latest
 
-PublishPort=7878:7878
+PublishPort=9060:7878
 
 Network=media.network
 
@@ -27,7 +27,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /mnt/media/downloads /mnt/media/movies
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7878/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7878 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9060/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9060 to firewall rules'"
 
 [Install]
 WantedBy=default.target
