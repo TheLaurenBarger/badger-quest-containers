@@ -18,7 +18,7 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=jellyfin.volume:/config:Z
-Volume=/mnt/media:/data/media:Z
+Volume=/mnt/media:/data/media:z
 
 AddDevice=/dev/dri
 

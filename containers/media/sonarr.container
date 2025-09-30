@@ -18,9 +18,9 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=sonarr.volume:/config:Z
-Volume=/mnt/media/anime:/mnt/media/anime:Z
-Volume=/mnt/media/series:/mnt/media/series:Z
-Volume=/mnt/media/downloads:/mnt/media/downloads:Z
+Volume=/mnt/media/anime:/mnt/media/anime:z
+Volume=/mnt/media/series:/mnt/media/series:z
+Volume=/mnt/media/downloads:/mnt/media/downloads:z
 
 [Service]
 Restart=always

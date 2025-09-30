@@ -18,8 +18,8 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=radarr.volume:/config:Z
-Volume=/mnt/media/movies:/mnt/media/movies:Z
-Volume=/mnt/media/downloads:/mnt/media/downloads:Z
+Volume=/mnt/media/movies:/mnt/media/movies:z
+Volume=/mnt/media/downloads:/mnt/media/downloads:z
 
 [Service]
 Restart=always

@@ -19,8 +19,12 @@ Timezone=${TZ}
 
 Volume=jellyseerr.volume:/app/config:Z
 
+SecurityLabelDisable=false
+SecurityLabelType=container_t
+SecurityLabelLevel=s0
+
 [Service]
-Restart=always
+Restart=on-failure
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=5055/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to update firewall rules'"
 
 [Install]
