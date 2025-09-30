@@ -8,7 +8,7 @@ StartLimitBurst=3
 ContainerName=sonarr
 Image=lscr.io/linuxserver/sonarr:latest
 
-PublishPort=10070:8989
+PublishPort=7070:8989
 
 Network=media.network
 
@@ -28,7 +28,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /mnt/media/anime /mnt/media/downloads /mnt/media/series
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=10070/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 10070 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7070/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7070 to firewall rules'"
 
 [Install]
 WantedBy=default.target
