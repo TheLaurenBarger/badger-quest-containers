@@ -24,6 +24,7 @@ Volume=/mnt/media/downloads:/mnt/media/downloads:Z
 
 [Service]
 Restart=always
+ExecStartPre=mkdir -p /mnt/media/anime /mnt/media/downloads /mnt/media/series
 
 [Install]
 WantedBy=multi-user.target default.target

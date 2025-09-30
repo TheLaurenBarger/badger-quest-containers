@@ -26,6 +26,7 @@ AddDevice=/dev/dri
 
 [Service]
 Restart=always
+ExecStartPre=mkdir -p /mnt/media/downloads
 
 [Install]
 WantedBy=multi-user.target default.target

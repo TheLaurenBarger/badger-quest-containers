@@ -23,6 +23,7 @@ Volume=/mnt/media/downloads:/mnt/media/downloads:Z
 
 [Service]
 Restart=always
+ExecStartPre=mkdir -p /mnt/media/downloads /mnt/media/movies
 
 [Install]
 WantedBy=multi-user.target default.target
