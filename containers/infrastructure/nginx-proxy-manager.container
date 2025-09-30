@@ -16,7 +16,7 @@ Network=automation.network
 Network=development.network
 Network=media.network
 
-EnvironmentFile=%h/containers/config/default.env
+EnvironmentFile=/var/home/badger/containers/config/default.env
 
 AutoUpdate=registry
 
