@@ -22,6 +22,8 @@ Volume=/mnt/media/anime:/mnt/media/anime:z
 Volume=/mnt/media/series:/mnt/media/series:z
 Volume=/mnt/media/downloads:/mnt/media/downloads:z
 
+SecurityLabelDisable=true
+
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /mnt/media/anime /mnt/media/downloads /mnt/media/series

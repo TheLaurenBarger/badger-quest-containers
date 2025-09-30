@@ -21,6 +21,8 @@ Volume=radarr.volume:/config:Z
 Volume=/mnt/media/movies:/mnt/media/movies:z
 Volume=/mnt/media/downloads:/mnt/media/downloads:z
 
+SecurityLabelDisable=true
+
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /mnt/media/downloads /mnt/media/movies

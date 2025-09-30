@@ -22,7 +22,7 @@ Timezone=${TZ}
 Volume=qbittorrent.volume:/config:Z
 Volume=/mnt/media/downloads:/downloads:z
 
-AddDevice=/dev/dri
+SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure

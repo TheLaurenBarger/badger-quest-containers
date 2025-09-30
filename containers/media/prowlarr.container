@@ -19,6 +19,8 @@ Timezone=Africa/Johannesburg
 
 Volume=prowlarr.volume:/config:Z
 
+SecurityLabelDisable=true
+
 [Service]
 Restart=on-failure
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9696/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9696 to firewall rules'"
