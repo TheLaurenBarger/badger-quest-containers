@@ -12,7 +12,7 @@ PublishPort=6881:6881
 
 Network=media.network
 
-EnvironmentFile=${HOME}/containers/config/default.env
+EnvironmentFile=/var/home/badger/containers/config/default.env
 Environment=WEBUI_PORT=9112
 
 AutoUpdate=registry

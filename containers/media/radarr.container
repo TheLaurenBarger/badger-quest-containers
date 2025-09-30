@@ -11,7 +11,7 @@ PublishPort=7878:7878
 
 Network=media.network
 
-EnvironmentFile=${HOME}/containers/config/default.env
+EnvironmentFile=/var/home/badger/containers/config/default.env
 
 AutoUpdate=registry
 

@@ -11,7 +11,7 @@ PublishPort=5055:5055
 
 Network=media.network
 
-EnvironmentFile=${HOME}/containers/config/default.env
+EnvironmentFile=~/containers/config/default.env
 
 AutoUpdate=registry
 
@@ -24,7 +24,7 @@ SecurityLabelType=container_t
 SecurityLabelLevel=s0
 
 [Service]
-Restart=on-failure:5
+Restart=on-failure
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=5055/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to update firewall rules'"
 
 [Install]
