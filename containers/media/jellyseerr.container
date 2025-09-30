@@ -11,7 +11,7 @@ PublishPort=5055:5055
 
 Network=media.network
 
-EnvironmentFile=~/containers/config/default.env
+EnvironmentFile=/var/home/badger/containers/config/default.env
 
 AutoUpdate=registry
 
@@ -19,7 +19,9 @@ Timezone=${TZ}
 
 Volume=jellyseerr.volume:/app/config:Z
 
-SecurityLabelDisable=true
+SecurityLabelDisable=false
+SecurityLabelType=container_t
+SecurityLabelLevel=s0
 
 [Service]
 Restart=on-failure
