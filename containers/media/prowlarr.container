@@ -8,7 +8,7 @@ StartLimitBurst=3
 ContainerName=prowlarr
 Image=lscr.io/linuxserver/prowlarr:latest
 
-PublishPort=9020:9696
+PublishPort=10020:9696
 
 Network=media.network
 
@@ -24,7 +24,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9020/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9020 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=10020/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 10020 to firewall rules'"
 
 [Install]
 WantedBy=default.target

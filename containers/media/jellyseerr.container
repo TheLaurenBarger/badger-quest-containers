@@ -8,7 +8,7 @@ StartLimitBurst=3
 ContainerName=jellyseerr
 Image=docker.io/fallenbagel/jellyseerr:latest
 
-PublishPort=9040:5055
+PublishPort=10040:5055
 
 Network=media.network
 
@@ -24,7 +24,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9040/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9040 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=10040/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 10040 to firewall rules'"
 
 [Install]
 WantedBy=default.target

@@ -8,7 +8,7 @@ StartLimitBurst=3
 ContainerName=jellyfin
 Image=lscr.io/linuxserver/jellyfin:latest
 
-PublishPort=9030:8096
+PublishPort=10030:8096
 
 Network=media.network
 
@@ -27,7 +27,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9030/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9030 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=10030/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 10030 to firewall rules'"
 
 [Install]
 WantedBy=default.target
