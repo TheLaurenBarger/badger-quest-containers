@@ -19,9 +19,7 @@ Timezone=${TZ}
 
 Volume=jellyseerr.volume:/app/config:Z
 
-SecurityLabelDisable=false
-SecurityLabelType=container_t
-SecurityLabelLevel=s0
+SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
