@@ -11,7 +11,7 @@ PublishPort=9696:9696
 
 Network=media.network
 
-EnvironmentFile=%h/containers/config/default.env
+EnvironmentFile=${HOME}/containers/config/default.env
 
 AutoUpdate=registry
 
