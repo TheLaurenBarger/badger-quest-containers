@@ -9,7 +9,7 @@ ContainerName=prowlarr
 HostName=prowlarr
 Image=lscr.io/linuxserver/prowlarr:latest
 
-PublishPort=9696:9696
+PublishPort=7020:7020
 
 Network=media.network
 
@@ -25,7 +25,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9696/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9696 to firewall rules'"
+ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7020/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7020 to firewall rules'"
 
 [Install]
 WantedBy=default.target
