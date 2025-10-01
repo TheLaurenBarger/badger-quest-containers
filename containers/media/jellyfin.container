@@ -1,7 +1,7 @@
 [Unit]
 Description=Jellyfin Container
-After=network-online.target media.network jellyfin.volume
-Wants=network-online.target media.network jellyfin.volume
+After=network-online.target media.network jellyfin.volume var-mnt-media.mount
+Wants=network-online.target media.network jellyfin.volume var-mnt-media.mount
 StartLimitBurst=3
 
 [Container]
@@ -19,7 +19,7 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=jellyfin.volume:/config:Z
-Volume=/mnt/media:/data/media:z
+Volume=/var/mnt/media:/data/media:z
 
 AddDevice=/dev/dri
 

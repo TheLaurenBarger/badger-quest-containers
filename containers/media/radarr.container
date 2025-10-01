@@ -1,7 +1,7 @@
 [Unit]
 Description=Radarr Container
-After=network-online.target media.network radarr.volume
-Wants=network-online.target media.network radarr.volume
+After=network-online.target media.network radarr.volume var-mnt-media.mount
+Wants=network-online.target media.network radarr.volume var-mnt-media.mount
 StartLimitBurst=3
 
 [Container]
@@ -19,14 +19,14 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=radarr.volume:/config:Z
-Volume=/mnt/media/movies:/mnt/media/movies:z
-Volume=/mnt/media/downloads:/mnt/media/downloads:z
+Volume=/var/mnt/media/movies:/var/mnt/media/movies:z
+Volume=/var/mnt/media/downloads:/var/mnt/media/downloads:z
 
 SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=mkdir -p /mnt/media/downloads /mnt/media/movies
+ExecStartPre=mkdir -p /var/mnt/media/downloads /var/mnt/media/movies
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7060/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7060 to firewall rules'"
 
 [Install]

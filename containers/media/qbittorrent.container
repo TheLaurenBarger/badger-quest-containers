@@ -1,7 +1,7 @@
 [Unit]
 Description=qBittorrent Container
-After=network-online.target media.network qbittorrent.volume
-Wants=network-online.target media.network qbittorrent.volume
+After=network-online.target media.network qbittorrent.volume var-mnt-media.mount
+Wants=network-online.target media.network qbittorrent.volume var-mnt-media.mount
 StartLimitBurst=3
 
 [Container]
@@ -21,13 +21,13 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=qbittorrent.volume:/config:Z
-Volume=/mnt/media/downloads:/downloads:z
+Volume=/var/mnt/media/downloads:/downloads:z
 
 SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=mkdir -p /mnt/media/downloads
+ExecStartPre=mkdir -p /var/mnt/media/downloads /var/mnt/media/downloads/incomplete /var/mnt/media/downloads/complete
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9112/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9112 to firewall rules'"
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/udp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"

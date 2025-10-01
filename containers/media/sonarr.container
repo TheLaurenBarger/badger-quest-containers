@@ -1,7 +1,7 @@
 [Unit]
 Description=Sonarr Container
-After=network-online.target media.network sonarr.volume
-Wants=network-online.target media.network sonarr.volume
+After=network-online.target media.network sonarr.volume var-mnt-media.mount
+Wants=network-online.target media.network sonarr.volume var-mnt-media.mount
 StartLimitBurst=3
 
 [Container]
@@ -19,15 +19,15 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=sonarr.volume:/config:Z
-Volume=/mnt/media/anime:/mnt/media/anime:z
-Volume=/mnt/media/series:/mnt/media/series:z
-Volume=/mnt/media/downloads:/mnt/media/downloads:z
+Volume=/var/mnt/media/anime:/var/mnt/media/anime:z
+Volume=/var/mnt/media/series:/var/mnt/media/series:z
+Volume=/var/mnt/media/downloads:/var/mnt/media/downloads:z
 
 SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=mkdir -p /mnt/media/anime /mnt/media/downloads /mnt/media/series
+ExecStartPre=mkdir -p /var/mnt/media/anime /var/mnt/media/downloads /var/mnt/media/series
 ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7070/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7070 to firewall rules'"
 
 [Install]

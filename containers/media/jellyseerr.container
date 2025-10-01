@@ -1,7 +1,7 @@
 [Unit]
 Description=Jellyseerr Container
-After=network-online.target media.network jellyseerr.volume
-Wants=network-online.target media.network jellyseerr.volume
+After=network-online.target media.network jellyseerr.volume jellyfin.service
+Wants=network-online.target media.network jellyseerr.volume jellyfin.service
 StartLimitBurst=3
 
 [Container]
