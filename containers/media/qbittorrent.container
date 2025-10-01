@@ -6,6 +6,7 @@ StartLimitBurst=3
 
 [Container]
 ContainerName=qbittorrent
+HostName=qbittorrent
 Image=lscr.io/linuxserver/qbittorrent:latest
 
 PublishPort=9112:9112

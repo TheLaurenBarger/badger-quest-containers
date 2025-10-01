@@ -6,6 +6,7 @@ StartLimitBurst=3
 
 [Container]
 ContainerName=radarr
+HostName=radarr
 Image=lscr.io/linuxserver/radarr:latest
 
 PublishPort=7060:7878

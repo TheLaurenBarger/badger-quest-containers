@@ -6,6 +6,7 @@ StartLimitBurst=3
 
 [Container]
 ContainerName=jellyseerr
+HostName=jellyseerr
 Image=docker.io/fallenbagel/jellyseerr:latest
 
 PublishPort=7040:5055

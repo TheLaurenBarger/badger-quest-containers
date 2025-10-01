@@ -6,6 +6,7 @@ StartLimitBurst=3
 
 [Container]
 ContainerName=jellyfin
+HostName=jellyfin
 Image=lscr.io/linuxserver/jellyfin:latest
 
 PublishPort=7030:8096

@@ -6,6 +6,7 @@ StartLimitBurst=3
 
 [Container]
 ContainerName=sonarr
+HostName=sonarr
 Image=lscr.io/linuxserver/sonarr:latest
 
 PublishPort=7070:8989
