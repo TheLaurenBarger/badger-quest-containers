@@ -30,7 +30,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=sudo /usr/local/bin/firewall-services add nginx-proxy-manager "Nginx Proxy Manager (NPM) is a free, open-source tool that provides a user-friendly web interface for managing an Nginx reverse proxy, making it easy to set up and manage multiple self-hosted services behind a single IP address" 8080/tcp,8081/tcp,8443/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add nginx-proxy-manager-container "Nginx Proxy Manager (NPM) is a free, open-source tool that provides a user-friendly web interface for managing an Nginx reverse proxy, making it easy to set up and manage multiple self-hosted services behind a single IP address" 8080/tcp,8081/tcp,8443/tcp
 
 [Install]
 WantedBy=default.target

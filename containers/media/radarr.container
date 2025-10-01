@@ -28,7 +28,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /var/mnt/media/downloads /var/mnt/media/movies
-ExecStartPre=sudo /usr/local/bin/firewall-services add radarr "Radarr is a free, open-source media management tool for automatically searching, downloading, organizing, and renaming movies from Usenet and BitTorrent sources" 7878/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add radarr-container "Radarr is a free, open-source media management tool for automatically searching, downloading, organizing, and renaming movies from Usenet and BitTorrent sources" 7878/tcp
 
 [Install]
 WantedBy=default.target

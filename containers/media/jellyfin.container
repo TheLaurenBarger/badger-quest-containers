@@ -28,7 +28,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=sudo /usr/local/bin/firewall-services add jellyfin "Jellyfin is a free, open-source media server system that allows you to collect, manage, and stream your personal media" 8096/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add jellyfin-container "Jellyfin is a free, open-source media server system that allows you to collect, manage, and stream your personal media" 8096/tcp
 
 [Install]
 WantedBy=default.target

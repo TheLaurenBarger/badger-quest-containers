@@ -25,7 +25,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=sudo /usr/local/bin/firewall-services add prowlarr "Prowlarr is an open-source indexer manager and proxy that centralizes and simplifies the management of torrent trackers and Usenet indexers" 9696/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add prowlarr-container "Prowlarr is an open-source indexer manager and proxy that centralizes and simplifies the management of torrent trackers and Usenet indexers" 9696/tcp
 
 [Install]
 WantedBy=default.target

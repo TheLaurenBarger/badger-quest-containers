@@ -25,7 +25,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=sudo /usr/local/bin/firewall-services add jellyseerr "Jellyseerr is a free, open-source, self-hosted application for managing requests for a media library, designed to work with Jellyfin, Plex, and Emby media servers" 5055/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add jellyseerr-container "Jellyseerr is a free, open-source, self-hosted application for managing requests for a media library, designed to work with Jellyfin, Plex, and Emby media servers" 5055/tcp
 
 [Install]
 WantedBy=default.target
