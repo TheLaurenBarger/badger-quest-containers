@@ -9,7 +9,7 @@ ContainerName=radarr
 HostName=radarr
 Image=lscr.io/linuxserver/radarr:latest
 
-PublishPort=7060:7878
+PublishPort=7878:7878
 
 Network=media.network
 
@@ -28,7 +28,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /var/mnt/media/downloads /var/mnt/media/movies
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7060/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7060 to firewall rules'"
+ExecStartPre=sudo /usr/local/bin/firewall-services add radarr "Radarr is a free, open-source media management tool for automatically searching, downloading, organizing, and renaming movies from Usenet and BitTorrent sources" 7878/tcp
 
 [Install]
 WantedBy=default.target

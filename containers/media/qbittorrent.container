@@ -29,9 +29,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /var/mnt/media/downloads /var/mnt/media/downloads/incomplete /var/mnt/media/downloads/complete
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=9112/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 9112 to firewall rules'"
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=6881/udp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 6881 to firewall rules'"
+ExecStartPre=sudo /usr/local/bin/firewall-services add qbittorrent "qBittorrent is a free, open-source, and cross-platform BitTorrent client that allows users to download files using the BitTorrent protocol" 9112/tcp,6881/tcp,6881/udp
 
 [Install]
 WantedBy=default.target

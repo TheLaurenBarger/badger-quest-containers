@@ -9,7 +9,7 @@ ContainerName=sonarr
 HostName=sonarr
 Image=lscr.io/linuxserver/sonarr:latest
 
-PublishPort=7070:8989
+PublishPort=8989:8989
 
 Network=media.network
 
@@ -29,7 +29,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /var/mnt/media/anime /var/mnt/media/downloads /var/mnt/media/series
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7070/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7070 to firewall rules'"
+ExecStartPre=sudo /usr/local/bin/firewall-services add sonarr "Sonarr is a free, open-source media management tool for automatically searching, downloading, organizing, and renaming series from Usenet and BitTorrent sources" 8989/tcp
 
 [Install]
 WantedBy=default.target

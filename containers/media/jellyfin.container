@@ -9,7 +9,7 @@ ContainerName=jellyfin
 HostName=jellyfin
 Image=lscr.io/linuxserver/jellyfin:latest
 
-PublishPort=7030:8096
+PublishPort=8096:8096
 
 Network=media.network
 
@@ -28,7 +28,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=7030/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 7030 to firewall rules'"
+ExecStartPre=sudo /usr/local/bin/firewall-services add jellyfin "Jellyfin is a free, open-source media server system that allows you to collect, manage, and stream your personal media" 8096/tcp
 
 [Install]
 WantedBy=default.target
