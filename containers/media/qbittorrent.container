@@ -22,7 +22,7 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=qbittorrent.volume:/config:Z
-Volume=/var/mnt/media/downloads:/downloads:z
+Volume=/var/mnt/media/downloads:/data/downloads:z
 
 SecurityLabelDisable=true
 
