@@ -1,0 +1,5 @@
+[Unit]
+Description=Audiobookshelf Metadata Volume
+
+[Volume]
+Driver=local
