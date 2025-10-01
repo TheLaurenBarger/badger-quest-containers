@@ -29,7 +29,7 @@ SecurityLabelDisable=true
 [Service]
 Restart=on-failure
 ExecStartPre=mkdir -p /var/mnt/media/anime /var/mnt/media/downloads /var/mnt/media/series
-ExecStartPre=sudo /usr/local/bin/firewall-services add sonarr-container "Sonarr is a free, open-source media management tool for automatically searching, downloading, organizing, and renaming series from Usenet and BitTorrent sources" 8989/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add sonarr-container "Sonarr is a free, open-source media management tool for automatically searching, downloading, organizing, and renaming series from Usenet and BitTorrent sources." 8989/tcp
 
 [Install]
 WantedBy=default.target
