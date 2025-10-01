@@ -30,9 +30,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8080/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8080 to firewall rules'"
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8081/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8081 to firewall rules'"
-ExecStartPre=/bin/sh -c "sudo firewall-cmd --permanent --add-port=8443/tcp && sudo firewall-cmd --reload || echo 'Warning: Failed to add port 8443 to firewall rules'"
+ExecStartPre=sudo /usr/local/bin/firewall-services add nginx-proxy-manager "Nginx Proxy Manager (NPM) is a free, open-source tool that provides a user-friendly web interface for managing an Nginx reverse proxy, making it easy to set up and manage multiple self-hosted services behind a single IP address" 8080/tcp,8081/tcp,8443/tcp
 
 [Install]
 WantedBy=default.target
