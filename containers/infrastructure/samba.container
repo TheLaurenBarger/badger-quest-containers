@@ -8,8 +8,8 @@ StartLimitBurst=3
 ContainerName=samba
 Image=docker.io/dperson/samba:latest
 
-PublishPort=139:139
-PublishPort=445:445
+PublishPort=8139:139
+PublishPort=8445:445
 
 Network=infrastructure.network
 
