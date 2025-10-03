@@ -1,0 +1,35 @@
+[Unit]
+Description=Samba
+After=network-online.target infrastructure.network
+Wants=network-online.target infrastructure.network
+StartLimitBurst=3
+
+[Container]
+ContainerName=samba
+Image=docker.io/dperson/samba:latest
+
+PublishPort=139:139
+PublishPort=445:445
+
+Network=infrastructure.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=/var/mnt/media:/media:Z
+
+SecurityLabelDisable=true
+
+# Run as root inside container (required)
+User=0:0
+
+[Service]
+Restart=on-failure
+TimeoutStopSec=30
+ExecStartPre=sudo firewall-cmd --permanent --add-service=samba
+
+[Install]
+WantedBy=default.target
