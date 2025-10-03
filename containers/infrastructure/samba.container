@@ -23,7 +23,7 @@ AutoUpdate=registry
 
 Timezone=${TZ}
 
-Volume=/var/mnt/media:/media:Z
+Volume=/var/mnt/media:/media:z
 
 SecurityLabelDisable=true
 
