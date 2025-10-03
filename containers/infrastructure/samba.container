@@ -29,7 +29,7 @@ User=0:0
 [Service]
 Restart=on-failure
 TimeoutStopSec=30
-ExecStartPre=sudo firewall-cmd --permanent --add-service=samba
+ExecStartPre=sudo /usr/local/bin/firewall-services add samba-container "Nginx Proxy Manager (NPM) is a free, open-source tool that provides a user-friendly web interface for managing an Nginx reverse proxy, making it easy to set up and manage multiple self-hosted services behind a single IP address" 139/tcp,445/tcp
 
 [Install]
 WantedBy=default.target
