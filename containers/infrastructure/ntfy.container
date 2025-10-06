@@ -6,6 +6,7 @@ StartLimitBurst=3
 
 [Container]
 ContainerName=ntfy
+HostName=ntfy
 Image=docker.io/binwiederhier/ntfy:latest
 Exec=serve
 
