@@ -1,0 +1,5 @@
+[Unit]
+Description=Container Registry Auth Volume
+
+[Volume]
+Driver=local

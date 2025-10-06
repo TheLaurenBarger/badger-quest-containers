@@ -1,0 +1,39 @@
+[Unit]
+Description=Container Registry Container
+After=network-online.target infrastructure.network development.network container-registry.volume container-registry-auth.volume
+Wants=network-online.target infrastructure.network development.network container-registry.volume container-registry-auth.volume
+StartLimitBurst=3
+
+[Container]
+ContainerName=container-registry
+HostName=container-registry
+Image=docker.io/registry:latest
+
+PublishPort=5000:5000
+
+Network=infrastructure.network
+Network=automation.network
+Network=development.network
+Network=media.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+Environment=REGISTRY_AUTH=htpasswd
+Environment=REGISTRY_AUTH_HTPASSWD_REALM=Registry
+Environment=REGISTRY_AUTH_HTPASSWD_PATH=/auth/registry.password
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=container-registry.volume:/var/lib/registry:Z
+Volume=container-registry-auth.volume:/auth:Z
+
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add container-registry-container "This is a server for storing and distributing software images." 5000/tcp
+
+[Install]
+WantedBy=default.target
