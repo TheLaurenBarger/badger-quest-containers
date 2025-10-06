@@ -20,6 +20,7 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=audiobookshelf.volume:/config:Z
+Volume=audiobookshelf-metadata.volume:/metadata:Z
 Volume=/var/mnt/media/books/audiobooks:/audiobooks:z
 Volume=/var/mnt/media/podcasts:/podcasts:z
 
