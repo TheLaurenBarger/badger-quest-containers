@@ -21,6 +21,7 @@ EnvironmentFile=/var/home/badger/containers/config/default.env
 Environment=REGISTRY_AUTH=htpasswd
 Environment=REGISTRY_AUTH_HTPASSWD_REALM=Registry
 Environment=REGISTRY_AUTH_HTPASSWD_PATH=/auth/registry.password
+Environment=OTEL_TRACES_EXPORTER=none
 
 AutoUpdate=registry
 
