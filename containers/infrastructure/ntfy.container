@@ -7,6 +7,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=ntfy
 Image=docker.io/binwiederhier/ntfy:latest
+Exec=serve
 
 PublishPort=9070:80
 
@@ -28,7 +29,6 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStart=serve
 ExecStartPre=sudo /usr/local/bin/firewall-services add ntfy-container "ntfy is a simple, open-source, HTTP-based publish/subscribe (pub-sub) notification service that allows users to send push notifications to their phones or desktops from any computer using simple HTTP requests." 9070/tcp
 
 [Install]
