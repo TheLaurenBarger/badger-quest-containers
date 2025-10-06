@@ -7,7 +7,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=audiobook-request
 HostName=audiobook-request
-Image=ghcr.io/markbeep/audiobookrequest:latest
+Image=docker.io/markbeep/audiobookrequest:latest
 
 PublishPort=13300:8000
 
