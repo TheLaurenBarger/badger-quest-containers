@@ -1,0 +1,5 @@
+[Unit]
+Description=NTFY Data Volume
+
+[Volume]
+Driver=local

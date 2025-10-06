@@ -1,0 +1,34 @@
+[Unit]
+Description=NTFY Container
+After=network-online.target infrastructure.network automation.network development.network media.network
+Wants=network-online.target infrastructure.network automation.network development.network media.network
+StartLimitBurst=3
+
+[Container]
+ContainerName=ntfy
+Image=docker.io/binwiederhier/ntfy:latest
+
+PublishPort=9070:80
+
+Network=infrastructure.network
+Network=automation.network
+Network=development.network
+Network=media.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=ntfy.volume:/etc/ntfy:Z
+Volume=/var/home/badger/containers/cache/ntfy:/var/cache/ntfy:Z
+
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add ntfy-container "ntfy is a simple, open-source, HTTP-based publish/subscribe (pub-sub) notification service that allows users to send push notifications to their phones or desktops from any computer using simple HTTP requests." 9070/tcp
+
+[Install]
+WantedBy=default.target
