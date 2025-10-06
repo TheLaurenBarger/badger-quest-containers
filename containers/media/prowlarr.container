@@ -7,7 +7,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=prowlarr
 HostName=prowlarr
-Image=lscr.io/linuxserver/prowlarr:latest
+Image=lscr.io/bitlessbyte/prowlarr:latest
 
 PublishPort=9696:9696
 
