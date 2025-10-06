@@ -1,0 +1,31 @@
+[Unit]
+Description=Audiobook Request Container
+After=network-online.target media.network audiobook-request.volume audiobook-request-metadata.volume var-mnt-media.mount
+Wants=network-online.target media.network audiobook-request.volume audiobook-request-metadata.volume var-mnt-media.mount
+StartLimitBurst=3
+
+[Container]
+ContainerName=audiobook-request
+HostName=audiobook-request
+Image=ghcr.io/markbeep/audiobookrequest:latest
+
+PublishPort=13300:8000
+
+Network=media.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=audiobook-request.volume:/config:Z
+
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add audiobook-request-container "AudioBookRequest aims to be a simple and lightweight tool for managing audiobook requests for your media server." 13300/tcp
+
+[Install]
+WantedBy=default.target
