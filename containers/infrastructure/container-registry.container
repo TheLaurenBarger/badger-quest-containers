@@ -22,6 +22,7 @@ Environment=REGISTRY_AUTH=htpasswd
 Environment=REGISTRY_AUTH_HTPASSWD_REALM=Registry
 Environment=REGISTRY_AUTH_HTPASSWD_PATH=/auth/registry.password
 Environment=OTEL_TRACES_EXPORTER=none
+Environment=REGISTRY_LOG_LEVEL=info
 
 AutoUpdate=registry
 
