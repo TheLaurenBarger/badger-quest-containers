@@ -1,7 +1,7 @@
 [Unit]
 Description=Audiobook Request Container
-After=network-online.target media.network audiobook-request.volume audiobook-request-metadata.volume var-mnt-media.mount
-Wants=network-online.target media.network audiobook-request.volume audiobook-request-metadata.volume var-mnt-media.mount
+After=network-online.target media.network audiobook-request.volume var-mnt-media.mount
+Wants=network-online.target media.network audiobook-request.volume var-mnt-media.mount
 StartLimitBurst=3
 
 [Container]
