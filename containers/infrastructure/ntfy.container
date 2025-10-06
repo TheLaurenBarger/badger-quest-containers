@@ -28,6 +28,7 @@ SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
+ExecStart=serve
 ExecStartPre=sudo /usr/local/bin/firewall-services add ntfy-container "ntfy is a simple, open-source, HTTP-based publish/subscribe (pub-sub) notification service that allows users to send push notifications to their phones or desktops from any computer using simple HTTP requests." 9070/tcp
 
 [Install]
