@@ -1,0 +1,32 @@
+[Unit]
+Description=Bazarr Container
+After=network-online.target media.network bazarr.volume var-mnt-media.mount
+Wants=network-online.target media.network bazarr.volume var-mnt-media.mount
+StartLimitBurst=3
+
+[Container]
+ContainerName=bazarr
+HostName=bazarr
+Image=lscr.io/linuxserver/bazarr:latest
+
+PublishPort=6767:6767
+
+Network=media.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=bazarr.volume:/config:Z
+Volume=/var/mnt/media:/data:z
+
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add bazarr-container "Bazarr is an application that automatically downloads and manages subtitles for your movies and TV shows, working as a companion to media managers like Sonarr and Radarr." 6767/tcp
+
+[Install]
+WantedBy=default.target
