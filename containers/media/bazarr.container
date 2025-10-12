@@ -20,7 +20,7 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=bazarr.volume:/config:Z
-Volume=/var/mnt/media:/data:z
+Volume=/var/mnt/media:/data/media:z
 
 SecurityLabelDisable=true
 
