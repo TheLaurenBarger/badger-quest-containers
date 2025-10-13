@@ -1,0 +1,34 @@
+[Unit]
+Description=Develop DB Container
+After=network-online.target develop.network develop-db.volume
+Wants=network-online.target develop.network develop-db.volume
+StartLimitBurst=3
+
+[Container]
+ContainerName=develop-db
+HostName=develop-db
+Image=docker.io/mysql:latest
+
+PublishPort=3306:3306
+
+Network=develop.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=develop-db.volume:/var/lib/mysql:Z
+
+SecurityLabelDisable=true
+
+HealthCmd=mysqladmin ping -h 127.0.0.1 -u root -pmy_secret_password
+Notify=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add develop-db-container "MySQL is a popular open-source relational database management system (RDBMS) used to store and manage structured data, such as that found in user accounts, e-commerce transactions, or other applications." 3306/tcp
+
+[Install]
+WantedBy=default.target
