@@ -7,7 +7,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=develop-db
 HostName=develop-db
-Image=mysql
+Image=docker.io/mysql
 
 PublishPort=3306:3306
 
