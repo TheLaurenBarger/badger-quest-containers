@@ -1,7 +1,7 @@
 [Unit]
 Description=Develop DB Container
-After=network-online.target develop.network develop-db.volume
-Wants=network-online.target develop.network develop-db.volume
+After=network-online.target development.network develop-db.volume
+Wants=network-online.target development.network develop-db.volume
 StartLimitBurst=3
 
 [Container]
@@ -11,7 +11,7 @@ Image=docker.io/mysql:latest
 
 PublishPort=3306:3306
 
-Network=develop.network
+Network=development.network
 
 EnvironmentFile=/var/home/badger/containers/config/default.env
 
