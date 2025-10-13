@@ -25,6 +25,8 @@ SecurityLabelDisable=true
 
 Secret=mysql-root-password,type=env,target=MYSQL_ROOT_PASSWORD
 
+Environment=MYSQL_ROOT_HOST=%
+
 HealthCmd=mysqladmin ping -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD
 Notify=true
 
