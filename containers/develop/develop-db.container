@@ -7,7 +7,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=develop-db
 HostName=develop-db
-Image=docker.io/mysql:latest
+Image=mysql
 
 PublishPort=3306:3306
 
@@ -24,8 +24,6 @@ Volume=develop-db.volume:/var/lib/mysql:Z
 SecurityLabelDisable=true
 
 Secret=mysql-root-password,type=env,target=MYSQL_ROOT_PASSWORD
-
-Environment=MYSQL_ROOT_PASSWORD=mysql_root
 
 HealthCmd=mysqladmin ping -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD
 Notify=true
