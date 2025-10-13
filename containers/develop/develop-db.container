@@ -23,11 +23,11 @@ Volume=develop-db.volume:/var/lib/mysql:Z
 
 SecurityLabelDisable=true
 
-Secret=mysql-root-password,type=env,target=MYSQL_ROOT_PASSWORD
+# Secret=mysql-root-password,type=env,target=MYSQL_ROOT_PASSWORD
 
-Environment=MYSQL_ROOT_HOST=%
+# Environment=MYSQL_ROOT_HOST=%
 
-HealthCmd=mysqladmin ping -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD
+HealthCmd=mysqladmin ping -h 127.0.0.1 -u root
 Notify=true
 
 [Service]
