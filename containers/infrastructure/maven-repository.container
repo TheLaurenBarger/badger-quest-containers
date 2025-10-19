@@ -1,0 +1,32 @@
+[Unit]
+Description=Container Registry Container
+After=network-online.target infrastructure.network development.network maven-repository.volume
+Wants=network-online.target infrastructure.network development.network maven-repository.volume
+StartLimitBurst=3
+
+[Container]
+ContainerName=maven-repository
+HostName=maven-repository
+Image=ghcr.io/dzikoysk/reposilite:3.5.23
+
+PublishPort=8050:8080
+
+Network=infrastructure.network
+Network=development.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=maven-repository.volume:/app/data:Z
+
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add maven-repository-container "Lightweight and easy-to-use repository manager for Maven-based artifacts in the JVM ecosystem." 8050/tcp
+
+[Install]
+WantedBy=default.target

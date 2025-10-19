@@ -1,0 +1,5 @@
+[Unit]
+Description=Maven Repository Volume
+
+[Volume]
+Driver=local
