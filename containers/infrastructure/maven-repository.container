@@ -23,6 +23,7 @@ Timezone=${TZ}
 Volume=maven-repository.volume:/app/data:Z
 
 SecurityLabelDisable=true
+UserNS=keep-id
 
 HealthCmd=curl -f http://localhost:8050/api/version || exit 1
 Notify=true
