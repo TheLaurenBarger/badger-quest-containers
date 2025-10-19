@@ -27,7 +27,8 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=woodpecker-agent.volume:/etc/woodpecker:Z
-Volume=/usr/lib/systemd/user/podman.socket:/var/run/docker.sock:z
+# Had to run systemctl --user enable --now podman.socket
+Volume=/var/home/badger/.config/systemd/user/sockets.target.wants/podman.socket:/var/run/docker.sock:z
 
 SecurityLabelDisable=true
 UserNS=keep-id
