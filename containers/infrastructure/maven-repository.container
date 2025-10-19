@@ -15,7 +15,7 @@ Network=infrastructure.network
 Network=development.network
 
 EnvironmentFile=/var/home/badger/containers/config/default.env
-Environment=REPOSILITE_OPTS="--token admin:secret"
+# Environment=REPOSILITE_OPTS="--token admin:secret"
 
 AutoUpdate=registry
 
@@ -26,7 +26,7 @@ Volume=maven-repository.volume:/app/data:Z
 SecurityLabelDisable=true
 UserNS=keep-id
 
-Notify=true
+# Notify=true
 
 [Service]
 Restart=on-failure
