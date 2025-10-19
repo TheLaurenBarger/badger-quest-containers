@@ -1,5 +1,5 @@
 [Unit]
-Description=Container Registry Container
+Description=Maven Repository Container
 After=network-online.target infrastructure.network development.network maven-repository.volume
 Wants=network-online.target infrastructure.network development.network maven-repository.volume
 StartLimitBurst=3
@@ -23,6 +23,9 @@ Timezone=${TZ}
 Volume=maven-repository.volume:/app/data:Z
 
 SecurityLabelDisable=true
+
+HealthCmd=curl -f http://localhost:8050/api/version || exit 1
+Notify=true
 
 [Service]
 Restart=on-failure
