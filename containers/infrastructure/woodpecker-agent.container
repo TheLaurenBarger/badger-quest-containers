@@ -1,6 +1,7 @@
 [Unit]
 Description=Woodpecker Agent Container
 After=network-online.target infrastructure.network development.network woodpecker-server.volume woodpecker-agent.volume
+Requires=podman.socket
 Wants=network-online.target infrastructure.network development.network woodpecker-server.volume woodpecker-agent.volume
 StartLimitBurst=3
 
@@ -26,7 +27,7 @@ AutoUpdate=registry
 Timezone=${TZ}
 
 Volume=woodpecker-agent.volume:/etc/woodpecker:Z
-Volume=/run/podman/podman.sock:/var/run/docker.sock:z
+Volume=/usr/lib/systemd/user/podman.socket:/var/run/docker.sock:z
 
 SecurityLabelDisable=true
 UserNS=keep-id
