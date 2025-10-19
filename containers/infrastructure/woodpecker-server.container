@@ -1,0 +1,51 @@
+[Unit]
+Description=Woodpecker Server Container
+After=network-online.target infrastructure.network development.network woodpecker-server.volume
+Wants=network-online.target infrastructure.network development.network woodpecker-server.volume
+StartLimitBurst=3
+
+[Container]
+ContainerName=woodpecker-server
+HostName=woodpecker-server
+Image=docker.io/woodpeckerci/woodpecker-server:latest
+
+PublishPort=8060:8080
+
+Network=infrastructure.network
+Network=development.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+# Environment=REPOSILITE_OPTS="--token admin:secret"
+
+Secret=woodpecker-github-client,type=env,target=WOODPECKER_GITHUB_CLIENT
+Secret=woodpecker-github-secret,type=env,target=WOODPECKER_GITHUB_SECRET
+Secret=woodpecker-agent-secret,type=env,target=WOODPECKER_AGENT_SECRET
+
+Environment=WOODPECKER_OPEN=true
+Environment=WOODPECKER_HOST=https://woodpecker.badger-quest.com
+Environment=WOODPECKER_GITHUB=true
+# Environment=WOODPECKER_GITHUB_CLIENT=${WOODPECKER_GITHUB_CLIENT}
+# Environment=WOODPECKER_GITHUB_SECRET=${WOODPECKER_GITHUB_SECRET}
+# Environment=WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
+Environment=WOODPECKER_ADMIN=TheLaurenBarger
+# Environment=WOODPECKER_PLUGINS_PRIVILEGED=docker.io/woodpeckerci/plugin-docker-buildx
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=woodpecker-server.volume:/var/lib/woodpecker/:Z
+
+SecurityLabelDisable=true
+UserNS=keep-id
+
+# Notify=true
+
+[Service]
+Restart=on-failure
+ExecStartPre=sudo /usr/local/bin/firewall-services add woodpecker-server-container "Woodpecker CI/CD is a free, open-source, and lightweight continuous integration/continuous deployment (CI/CD) engine that automates software development workflows like building, testing, and deploying code." 8060/tcp
+
+[Install]
+WantedBy=default.target
+
+# https://xyquadrat.ch/blog/simple-ci-with-woodpecker/

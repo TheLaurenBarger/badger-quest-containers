@@ -1,0 +1,40 @@
+[Unit]
+Description=Woodpecker Agent Container
+After=network-online.target infrastructure.network development.network woodpecker-server.volume woodpecker-agent.volume
+Wants=network-online.target infrastructure.network development.network woodpecker-server.volume woodpecker-agent.volume
+StartLimitBurst=3
+
+[Container]
+ContainerName=woodpecker-agent
+HostName=woodpecker-agent
+Image=docker.io/woodpeckerci/woodpecker-agent:latest
+
+Exec=agent
+
+Network=infrastructure.network
+Network=development.network
+
+EnvironmentFile=/var/home/badger/containers/config/default.env
+
+Secret=woodpecker-agent-secret,type=env,target=WOODPECKER_AGENT_SECRET
+
+Environment=WOODPECKER_SERVER=woodpecker-server:9000
+Environment=WOODPECKER_BACKEND_DOCKER_NETWORK=ops_default
+
+AutoUpdate=registry
+
+Timezone=${TZ}
+
+Volume=woodpecker-agent.volume:/etc/woodpecker:Z
+Volume=/run/podman/podman.sock:/var/run/docker.sock:z
+
+SecurityLabelDisable=true
+UserNS=keep-id
+
+# Notify=true
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
