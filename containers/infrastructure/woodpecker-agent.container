@@ -8,7 +8,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=woodpecker-agent
 HostName=woodpecker-agent
-Image=docker.io/woodpeckerci/woodpecker-agent:latest
+Image=docker.io/woodpeckerci/woodpecker-agent:v3
 
 Exec=agent
 

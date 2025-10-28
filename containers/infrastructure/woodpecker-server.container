@@ -7,7 +7,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=woodpecker-server
 HostName=woodpecker-server
-Image=docker.io/woodpeckerci/woodpecker-server:latest
+Image=docker.io/woodpeckerci/woodpecker-server:v3
 
 PublishPort=8060:8000
 
@@ -20,7 +20,7 @@ Secret=woodpecker-github-client,type=env,target=WOODPECKER_GITHUB_CLIENT
 Secret=woodpecker-github-secret,type=env,target=WOODPECKER_GITHUB_SECRET
 Secret=woodpecker-agent-secret,type=env,target=WOODPECKER_AGENT_SECRET
 
-Environment=WOODPECKER_OPEN=true
+Environment=WOODPECKER_OPEN=false
 Environment=WOODPECKER_HOST=https://fa1e7e18fdf1.ngrok-free.app
 Environment=WOODPECKER_GITHUB=true
 Environment=WOODPECKER_GITHUB_CLIENT=${WOODPECKER_GITHUB_CLIENT}
