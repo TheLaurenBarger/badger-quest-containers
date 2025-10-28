@@ -9,7 +9,7 @@ ContainerName=woodpecker-server
 HostName=woodpecker-server
 Image=docker.io/woodpeckerci/woodpecker-server:latest
 
-PublishPort=8060:8080
+PublishPort=8060:8000
 
 Network=infrastructure.network
 Network=development.network
