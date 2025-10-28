@@ -1,7 +1,7 @@
 [Unit]
 Description=Woodpecker Agent Container
 After=network-online.target infrastructure.network development.network woodpecker-server.container woodpecker-agent.volume
-Requires=podman.socket
+Requires=podman.socket woodpecker-server.container
 Wants=network-online.target infrastructure.network development.network woodpecker-server.container woodpecker-agent.volume
 StartLimitBurst=3
 
