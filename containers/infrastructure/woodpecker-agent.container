@@ -8,7 +8,7 @@ StartLimitBurst=3
 [Container]
 ContainerName=woodpecker-agent
 HostName=woodpecker-agent
-Image=docker.io/woodpeckerci/woodpecker-agent:v3
+Image=woodpeckerci/woodpecker-agent:v3
 
 Exec=agent
 
@@ -31,10 +31,6 @@ Timezone=${TZ}
 Volume=woodpecker-agent.volume:/etc/woodpecker:Z
 # Had to run systemctl --user enable --now podman.socket
 Volume=/run/user/1001/podman/podman.sock:/var/run/docker.sock:z
-
-# Avoids missing lib exceptions
-Volume=/usr/lib:/usr/lib:ro
-Volume=/lib:/lib:ro
 
 SecurityLabelDisable=true
 UserNS=keep-id
