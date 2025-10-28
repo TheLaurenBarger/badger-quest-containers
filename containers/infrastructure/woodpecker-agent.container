@@ -20,7 +20,7 @@ EnvironmentFile=/var/home/badger/containers/config/default.env
 Secret=woodpecker-agent-secret,type=env,target=WOODPECKER_AGENT_SECRET
 
 Environment=WOODPECKER_SERVER=woodpecker-server:9000
-Environment=WOODPECKER_BACKEND_DOCKER_NETWORK=ops_default
+# Environment=WOODPECKER_BACKEND_DOCKER_NETWORK=ops_default
 
 AutoUpdate=registry
 

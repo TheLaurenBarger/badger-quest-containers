@@ -15,7 +15,6 @@ Network=infrastructure.network
 Network=development.network
 
 EnvironmentFile=/var/home/badger/containers/config/default.env
-# Environment=REPOSILITE_OPTS="--token admin:secret"
 
 Secret=woodpecker-github-client,type=env,target=WOODPECKER_GITHUB_CLIENT
 Secret=woodpecker-github-secret,type=env,target=WOODPECKER_GITHUB_SECRET
