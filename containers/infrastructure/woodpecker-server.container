@@ -1,7 +1,7 @@
 [Unit]
 Description=Woodpecker Server Container
-After=network-online.target infrastructure.network development.network woodpecker-server.volume
-Wants=network-online.target infrastructure.network development.network woodpecker-server.volume
+After=network-online.target infrastructure.network woodpecker-server.volume
+Wants=network-online.target infrastructure.network woodpecker-server.volume
 StartLimitBurst=3
 
 [Container]
@@ -12,7 +12,6 @@ Image=docker.io/woodpeckerci/woodpecker-server:v3
 PublishPort=8060:8000
 
 Network=infrastructure.network
-Network=development.network
 
 EnvironmentFile=/var/home/badger/containers/config/default.env
 
@@ -28,7 +27,8 @@ Environment=WOODPECKER_GITHUB_SECRET=${WOODPECKER_GITHUB_SECRET}
 Environment=WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 Environment=WOODPECKER_ADMIN=TheLaurenBarger
 Environment=WOODPECKER_PLUGINS_PRIVILEGED=quay.io/buildah/stable:latest
-# Environment=WOODPECKER_PLUGINS_PRIVILEGED=docker.io/woodpeckerci/plugin-docker-buildx
+Environment=WOODPECKER_BACKEND_DOCKER_NETWORK=systemd-infrastructure
+Environment=PODMAN_NETWORK_DNS=true
 
 AutoUpdate=registry
 

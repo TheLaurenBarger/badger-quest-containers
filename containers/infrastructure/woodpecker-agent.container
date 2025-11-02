@@ -1,8 +1,8 @@
 [Unit]
 Description=Woodpecker Agent Container
-After=network-online.target infrastructure.network development.network woodpecker-server.container woodpecker-agent.volume
+After=network-online.target infrastructure.network woodpecker-server.container woodpecker-agent.volume
 Requires=podman.socket woodpecker-server.container
-Wants=network-online.target infrastructure.network development.network woodpecker-server.container woodpecker-agent.volume
+Wants=network-online.target infrastructure.network woodpecker-server.container woodpecker-agent.volume
 StartLimitBurst=3
 
 [Container]
@@ -13,7 +13,6 @@ Image=docker.io/woodpeckerci/woodpecker-agent:v3
 Exec=agent
 
 Network=infrastructure.network
-Network=development.network
 
 EnvironmentFile=/var/home/badger/containers/config/default.env
 
