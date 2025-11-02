@@ -1,0 +1,5 @@
+[Unit]
+Description=Badger Registry Auth Volume
+
+[Volume]
+Driver=local

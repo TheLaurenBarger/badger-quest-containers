@@ -1,12 +1,12 @@
 [Unit]
-Description=Container Registry Container
-After=network-online.target infrastructure.network development.network container-registry.volume container-registry-auth.volume
-Wants=network-online.target infrastructure.network development.network container-registry.volume container-registry-auth.volume
+Description=Badger Registry Container
+After=network-online.target infrastructure.network development.network badger-registry.volume badger-registry-auth.volume
+Wants=network-online.target infrastructure.network development.network badger-registry.volume badger-registry-auth.volume
 StartLimitBurst=3
 
 [Container]
-ContainerName=container-registry
-HostName=container-registry
+ContainerName=badger-registry
+HostName=badger-registry
 Image=docker.io/registry:latest
 
 PublishPort=5000:5000
@@ -28,14 +28,14 @@ AutoUpdate=registry
 
 Timezone=${TZ}
 
-Volume=container-registry.volume:/var/lib/registry:Z
-Volume=container-registry-auth.volume:/auth:Z
+Volume=badger-registry.volume:/var/lib/registry:Z
+Volume=badger-registry-auth.volume:/auth:Z
 
 SecurityLabelDisable=true
 
 [Service]
 Restart=on-failure
-ExecStartPre=sudo /usr/local/bin/firewall-services add container-registry-container "This is a server for storing and distributing software images." 5000/tcp
+ExecStartPre=sudo /usr/local/bin/firewall-services add badger-registry-container "This is a server for storing and distributing software images." 5000/tcp
 
 [Install]
 WantedBy=default.target
