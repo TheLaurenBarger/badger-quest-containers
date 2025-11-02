@@ -21,7 +21,7 @@ Secret=woodpecker-github-secret,type=env,target=WOODPECKER_GITHUB_SECRET
 Secret=woodpecker-agent-secret,type=env,target=WOODPECKER_AGENT_SECRET
 
 Environment=WOODPECKER_OPEN=false
-Environment=WOODPECKER_HOST=https://fa1e7e18fdf1.ngrok-free.app
+Environment=WOODPECKER_HOST=https://df09de588ffe.ngrok-free.app
 Environment=WOODPECKER_GITHUB=true
 Environment=WOODPECKER_GITHUB_CLIENT=${WOODPECKER_GITHUB_CLIENT}
 Environment=WOODPECKER_GITHUB_SECRET=${WOODPECKER_GITHUB_SECRET}
