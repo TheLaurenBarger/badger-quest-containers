@@ -22,6 +22,7 @@ Secret=woodpecker-agent-secret,type=env,target=WOODPECKER_AGENT_SECRET
 Environment=WOODPECKER_SERVER=woodpecker-server:9000
 Environment=WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 Environment=PODMAN_NETWORK_DNS=true
+Environment=WOODPECKER_BACKEND_DOCKER_NETWORK=systemd-infrastructure
 # Environment=SYSTEMD_RESOLV_CONFIG=/run/systemd/resolve/resolv.conf
 
 # Environment=WOODPECKER_BACKEND_DOCKER_NETWORK=ops_default
