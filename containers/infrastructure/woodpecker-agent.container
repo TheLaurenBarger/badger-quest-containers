@@ -34,7 +34,7 @@ Volume=woodpecker-agent.volume:/etc/woodpecker:Z
 # Had to run systemctl --user enable --now podman.socket
 Volume=/run/user/1001/podman/podman.sock:/var/run/docker.sock:z
 # Had to create custom daemon.json to mark badger-registry:5000 as an insecure registry
-Volume=/var/home/badger/containers/config/docker/daemon.json:/etc/docker/daemon.json:Z
+Volume=/var/home/badger/containers/data/woodpecker/docker/daemon.json:/etc/docker/daemon.json:Z
 
 SecurityLabelDisable=true
 UserNS=keep-id
